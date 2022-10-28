@@ -1,14 +1,12 @@
-#import math
-#from datetime import datetime
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    Author: João Jerónimo (joao.jeronimo.pro@gmail.com)
+#    Copyright (C) 2019-2022 - Licensed under the terms of GNU LGPL
+#
+##############################################################################
+
 from odoo import models, fields, api, tools, SUPERUSER_ID
-#from odoo.tools.translate import _
-#from odoo.exceptions import UserError, ValidationError
-#import odoo.addons.decimal_precision as dp
-#from datetime import datetime, date, timedelta
-#import dateutil.relativedelta
-#from dateutil.relativedelta import relativedelta
-#from odoo.tools import float_is_zero, DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
-#import logging;_logger = logging.getLogger(__name__)
 
 """
 This module contains tools for:
