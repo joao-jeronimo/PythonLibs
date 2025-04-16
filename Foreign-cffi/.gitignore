@@ -1,2 +1,3 @@
 cffi_example.py
+cffi_example.c
 *.o
