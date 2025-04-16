@@ -12,10 +12,9 @@ ffi.set_source(
     )
 ffi.compile()
 
-exit()
 print("############################")
 print("### Demonstrating functions with double:")
-my_functions.square_doubles.restype = ctypes.c_double
-print( my_functions.square_doubles( ctypes.c_double(10.1) ) )
-print( my_functions.square_doubles( ctypes.c_double(8.2)  ) )
+import cffi_example
+print( cffi_example.square_doubles( 10.1 ) )
+print( cffi_example.square_doubles( 8.2  ) )
 print("")

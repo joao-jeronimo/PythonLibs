@@ -8,4 +8,4 @@
 
 cc -fPIC -shared -o my_functions.so my_functions.c
 
-python3 main.py
+python3 main_abi.py
