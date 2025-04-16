@@ -1,14 +1,26 @@
-import cffi
+import cffi, pathlib
 
-### Importing the object:
-my_functions = ctypes.CDLL("./my_functions.so")
-print(type(my_functions))
+### Building the binding:
+ffi = cffi.FFI()
+this_dir = pathlib.Path().absolute()
+h_file_name = this_dir / "my_functions.h"
+with open(h_file_name) as h_file:
+    ffi.cdef(h_file.read())
+ffi.set_source(
+    "cffi_example",
+    # Since you're calling a fully-built library directly, no custom source
+    # is necessary. You need to include the .h files, though, because behind
+    # the scenes cffi generates a .c file that contains a Python-friendly
+    # wrapper around each of the functions.
+    '#include "my_functions.h"',
+    # The important thing is to include the pre-built lib in the list of
+    # libraries you're linking against:
+    libraries=["my_functions"],
+    library_dirs=[this_dir.as_posix()],
+    extra_link_args=["-Wl,-rpath,."],
+    )
+ffi.compile()
 
-print("############################")
-print("### Demonstrating int-only functions:")
-print( my_functions.square(10) )
-print( my_functions.square(8) )
-print("")
 
 print("############################")
 print("### Demonstrating functions with double:")
