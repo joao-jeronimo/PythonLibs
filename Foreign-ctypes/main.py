@@ -1,7 +1,7 @@
-from ctypes import *
+import ctypes
 
 ### Importing the object:
-my_functions = CDLL("./my_functions.so")
+my_functions = ctypes.CDLL("./my_functions.so")
 print(type(my_functions))
 
 print("############################")
@@ -12,6 +12,6 @@ print("")
 
 print("############################")
 print("### Demonstrating functions with double:")
-print( my_functions.square_doubles(10.1) )
-print( my_functions.square_doubles(8.2) )
+print( my_functions.square_doubles( ctypes.c_double(10.1) ) )
+print( my_functions.square_doubles( ctypes.c_double(8.2)  ) )
 print("")
