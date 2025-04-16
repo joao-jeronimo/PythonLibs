@@ -15,6 +15,6 @@ ffi.compile()
 print("############################")
 print("### Demonstrating functions with double:")
 import cffi_example
-print( cffi_example.square_doubles( 10.1 ) )
-print( cffi_example.square_doubles( 8.2  ) )
+print( cffi_example.ffi.square_doubles( 10.1 ) )    # Does not work.
+print( cffi_example.ffi.square_doubles( 8.2  ) )    # Does not work.
 print("")
